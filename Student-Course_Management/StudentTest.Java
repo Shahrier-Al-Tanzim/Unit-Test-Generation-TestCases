@@ -1,108 +1,100 @@
-// ---------------------------------------------------------------------------------
-// --------------------------- E R R O R S --------------------------------
+// System.out.println("\n\n\t*Courses List*\n \n \"Maths\" \t\"English\" \n\"Computer Science\" \t \"IT\" ");
+// Above line game the error
 // (ragvenv) PS C:\Thesis\RagPipe\ragvenv> python .\RagPipeline.py
-// Loading knowledge base...
-// Loaded 4 documents.
-// Splitting documents...
-// Loaded chunked splits from cache.
-// Embedding documents...
-// Loading existing FAISS index...
-// Setting up retriever...
-// Initializing LLM and RAG pipeline...
-// Java syntax error: Expected ')' (IT IS THIS)
-// ---------------------------------------------------------------------------------
+// Java syntax error: Expected ')'
 
-// actual class 
+// it was fixed to 
+// System.out.println("\n\n\t*Courses List*\n \n \\\"Maths\\\" \t\\\"English\\\" \n\\\"Computer Science\\\" \t \\\"IT\\\" ");
+
+query: 	
+You are a Java testing assistant.
+
+Below is a JSON array of method-metadata for the class under test. Your task is to generate a complete, idiomatic JUnit 5 unit test class for each following Java method:
+
+```json
+# {"package": "pack1", "imports": ["java.util.Scanner"], "classes": [{"class_name": "Student", "modifiers": ["public"], "fields": [{"name": "firstname", "type": "String"}, {"name": "lastname", "type": "String"}, {"name": "gradlevel", "type": "int"}, {"name": "Courses", "type": "String"}, {"name": "enrollchoice", "type": "String"}, {"name": "cost", "type": "int"}, {"name": "id", "type": "int"}, {"name": "sc", "type": "Scanner"}], "constructors": [{"parameters": [], "modifiers": ["public"]}], "methods": [{"name": "Id", "modifiers": ["private"], "return_type": "int", "parameters": [], "invocations": [], "conditionals": []}, {"name": "Enroll", "modifiers": [], "return_type": "void", "parameters": [], "invocations": [{"qualifier": "System.out", "member": "println", "arguments": ["Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\"\n\n\t*Courses List*\n \n \\\"Maths\\\" \t\\\"English\\\" \n\\\"Computer Science\\\" \t \\\"IT\\\" \")"]}, {"qualifier": "System.out", "member": "println", "arguments": ["Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\"\n\nEnter '1' to enroll and '0' to not enroll !!\")"]}, {"qualifier": "System.out", "member": "println", "arguments": ["BinaryOperation(operandl=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\"\nDo you want to enroll for \"), operandr=MemberReference(member=Courses, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[ArraySelector(index=MemberReference(member=i, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]))]), operator=+)"]}, {"qualifier": "sc", "member": "nextInt", "arguments": []}, {"qualifier": "", "member": "balence", "arguments": []}], "conditionals": [{"condition": "BinaryOperation(operandl=MemberReference(member=choice, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1), operator===)", "has_else": false}]}, {"name": "balence", "modifiers": [], "return_type": "void", "parameters": [], "invocations": [{"qualifier": "System.out", "member": "println", "arguments": ["BinaryOperation(operandl=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\"Remaining balence is Rs: \"), operandr=MemberReference(member=cost, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]), operator=+)"]}], "conditionals": []}, {"name": "paytut", "modifiers": [], "return_type": "void", "parameters": [], "invocations": [{"qualifier": "System.out", "member": "println", "arguments": ["Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\"How much do you want to pay : Rs \")"]}, {"qualifier": "sc", "member": "nextInt", "arguments": []}, {"qualifier": "System.out", "member": "println", "arguments": ["BinaryOperation(operandl=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\"Thank you for your payment Rs \"), operandr=MemberReference(member=pay, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]), operator=+)"]}, {"qualifier": "", "member": "balence", "arguments": []}], "conditionals": []}, {"name": "stat", "modifiers": [], "return_type": "void", "parameters": [], "invocations": [{"qualifier": "System.out", "member": "println", "arguments": ["Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\"------------------------------------\")"]}, {"qualifier": "System.out", "member": "println", "arguments": ["BinaryOperation(operandl=BinaryOperation(operandl=BinaryOperation(operandl=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\"\n\t Student Name : \"), operandr=MemberReference(member=firstname, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]), operator=+), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\" \"), operator=+), operandr=MemberReference(member=lastname, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]), operator=+)"]}, {"qualifier": "System.out", "member": "println", "arguments": ["BinaryOperation(operandl=BinaryOperation(operandl=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\"\n\t Graduation Level : \"), operandr=MemberReference(member=gradlevel, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]), operator=+), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\" year\"), operator=+)"]}, {"qualifier": "System.out", "member": "println", "arguments": ["BinaryOperation(operandl=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\"\n\t Enrollment ID : \"), operandr=MethodInvocation(arguments=[], member=Id, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[], type_arguments=None), operator=+)"]}, {"qualifier": "", "member": "Id", "arguments": []}, {"qualifier": "System.out", "member": "println", "arguments": ["Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\"\n\tEnrolled courses are: \")"]}, {"qualifier": "System.out", "member": "println", "arguments": ["BinaryOperation(operandl=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\"\t\t\t\t\"), operandr=MemberReference(member=enrollchoice, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[ArraySelector(index=MemberReference(member=i, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]))]), operator=+)"]}, {"qualifier": "", "member": "balence", "arguments": []}, {"qualifier": "System.out", "member": "println", "arguments": ["Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\"--------Total paid--------- \")"]}], "conditionals": [{"condition": "BinaryOperation(operandl=MemberReference(member=enrollchoice, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[ArraySelector(index=MemberReference(member=i, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]))]), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=null), operator=!=)", "has_else": false}, {"condition": "BinaryOperation(operandl=MemberReference(member=cost, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=0), operator=!=)", "has_else": true}]}]}]}
+
+
+```
+Rules:
+1. Use @Test from JUnit 5.
+2. Resolve all the dependencies. Use Mockito (@Mock, Mockito.when(...), verify(...)) for all dependencies.
+3. Instantiate focal class
+4. Use @BeforeEach for setting up required preconditions before each test method And @AfterEach for cleanup. Use @BeforeAll (static) if setup is required once before all tests.
+5. For each invocation:
+Stub its behavior (when(mock.member(args)).thenReturn(...) for non-void; doNothing().when(...) and verify mehtod call for void ).
+6. Use Arrange-Act-Assert format.
+  -Arrange: Set up inputs, mocks, or stubs.
+  -Act: Call the method under test.
+  -Assert:  Verify the results.
+7. Make all test methods public.
+8. Import only what is necessary: JUnit 5, Mockito, and the class under test.
+9. Return only a complete Java test class, no explanation.
+
+
+result: ```java
 package pack1;
-/**
- * @author PAVAN
- */
+
 import java.util.Scanner;
 
-public class Student {
-	/*
-	 * using private variables for encapsulation
-	 * creating the courses
-	 */
-	private String firstname;
-	private String lastname;
-	private int gradlevel;
-	private String Courses [] = {"Maths","English","Computer_Science","IT"};
-	private  String  enrollchoice [] = new String[4];
-	private int cost;
-	private static int id = 1000;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
-	Scanner sc = new Scanner(System.in);
+public class StudentTest {
+    private Scanner sc;
+    private Student student;
 
-	//Constructor to read name,year
-	public Student() {
-		System.out.println("---------------------------------------");
+    @BeforeEach
+    void setup() {
+        sc = mock(Scanner.class);
+        student = new Student();
+    }
 
-		System.out.println("Enter the First Name :");
-		firstname = sc.next();
-		System.out.println("Enter the Last Name :");
-		lastname = sc.next();
-		System.out.println("Enter the current pursuing Grad Level :");
-		gradlevel = sc.nextInt();
+    @Test
+    public void testId() {
+        int id = 1234567890;
+        when(sc.nextInt()).thenReturn(id);
+        assertEquals(id, student.Id());
+    }
 
-	}
+    @Test
+    public void testEnroll() {
+        String choice = "1";
+        when(sc.nextLine()).thenReturn(choice);
+        student.Enroll();
+        verify(System.out).println("Courses List:");
+        verify(System.out).println("\n\t*Maths*\n\t*English*\n\t*Computer Science*\n\t*IT*\n");
+        verify(System.out).println("Enter '1' to enroll and '0' to not enroll !!");
+        verify(System.out).println("\nDo you want to enroll for \n" + student.Courses[i] + " ?");
+        verify(sc).nextInt();
+        verify(student).balence();
+    }
 
+    @Test
+    public void testBalence() {
+        int cost = 100;
+        when(sc.nextInt()).thenReturn(cost);
+        student.paytut();
+        verify(System.out).println("How much do you want to pay : Rs " + cost + " ?");
+        verify(sc).nextInt();
+        verify(System.out).println("Thank you for your payment Rs " + cost + " !");
+        verify(student).balence();
+    }
 
-	// Generate ID
-	private int Id() {
-		id++;
-		return gradlevel+id;
-	}
-
-	// Enroll in courses
-	 void Enroll() {
-
-		System.out.println("\n\n\t*Courses List*\n \n \"Maths\" \t\"English\" \n\"Computer Science\" \t \"IT\" ");
-		System.out.println("\n\nEnter '1' to enroll and '0' to not enroll !!");
-		int choice;
-				for(int i=0;i<4;i++) {
-					System.out.println("\nDo you want to enroll for "+Courses[i]);
-					choice = sc.nextInt();
-					if (choice ==1)  {
-						enrollchoice[i] = Courses[i];
-						cost = cost+600;
-
-					}
-				}
-				balence();
-
-
-	}
-
-
-	// view Balance
-	void balence() {
-		System.out.println("Remaining balence is Rs: "+cost);
-	}
-
-	// Pay fee
-	void paytut() {
-		System.out.println("How much do you want to pay : Rs ");
-		int pay;
-		pay = sc.nextInt();
-		cost =cost-pay;
-		System.out.println("Thank you for your payment Rs "+pay);
-		balence();
-
-	}
-
-	// Show Status
-	void stat() {
-		System.out.println("------------------------------------");
-		System.out.println("\n\t Student Name : "+firstname+" "+lastname);
-		System.out.println("\n\t Graduation Level : "+gradlevel+" year");
-		System.out.println("\n\t Enrollment ID : "+Id());
-		System.out.println("\n\tEnrolled courses are: ");
-		for(int i=0;i<4;i++) {
-			if (enrollchoice[i] != null)
-				System.out.println("\t\t\t\t"+enrollchoice[i]);
-			}
-		if (cost != 0 ) balence();
-		else System.out.println("--------Total paid--------- ");
-	}
+    @Test
+    public void testStat() {
+        student.stat();
+        verify(System.out).println("------------------------------------");
+        verify(System.out).println("\n\t Student Name : " + student.firstname + " " + student.lastname);
+        verify(System.out).println("\n\t Graduation Level : " + student.gradlevel + " year");
+        verify(System.out).println("\n\t Enrollment ID : " + student.Id());
+        verify(System.out).println("\n\tEnrolled courses are: ");
+        for (int i = 0; i < student.Courses.length; i++) {
+            verify(System.out).println("\t\t\t\t" + student.enrollchoice[i]);
+        }
+        verify(System.out).println("--------Total paid--------- ");
+    }
 }
+```
