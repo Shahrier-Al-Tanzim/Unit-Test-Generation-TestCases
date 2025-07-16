@@ -1,0 +1,64 @@
+query: 
+You are a Java testing assistant.
+Below is a JSON array of method-metadata for the class under test. Your task is to generate a complete, idiomatic JUnit 5 unit test class for each following Java method:
+```json
+{"package": "com.thealgorithms.maths", "imports": ["java.util.List"], "classes": [{"class_name": "ChineseRemainderTheorem", "modifiers": ["public", "final"], "fields": [], "constructors": [{"parameters": [], "modifiers": ["private"]}], "methods": [{"name": "solveCRT", "modifiers": ["public", "static"], "return_type": "int", "parameters": [{"name": "remainders", "type": "List"}, {"name": "moduli", "type": "List"}], "invocations": [{"qualifier": "moduli", "member": "size", "arguments": []}, {"qualifier": "moduli", "member": "get", "arguments": ["i"]}, {"qualifier": "", "member": "modInverse", "arguments": ["partialProduct", "MethodInvocation(arguments=[MemberReference(member=i, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[])], member=get, postfix_operators=[], prefix_operators=[], qualifier=moduli, selectors=[], type_arguments=None)"]}, {"qualifier": "moduli", "member": "get", "arguments": ["i"]}, {"qualifier": "remainders", "member": "get", "arguments": ["i"]}], "conditionals": [{"condition": "BinaryOperation(operandl=MemberReference(member=result, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=0), operator=<)", "has_else": false}]}, {"name": "modInverse", "modifiers": ["static", "private"], "return_type": "int", "parameters": [{"name": "a", "type": "int"}, {"name": "m", "type": "int"}], "invocations": [], "conditionals": [{"condition": "BinaryOperation(operandl=MemberReference(member=m, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1), operator===)", "has_else": false}, {"condition": "BinaryOperation(operandl=MemberReference(member=x1, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=0), operator=<)", "has_else": false}]}]}]}
+```
+Rules:
+1. Use @Test from JUnit 5.
+2. Resolve all the dependencies. Use Mockito (@Mock, Mockito.when(...), verify(...)) for all dependencies.
+3. Instantiate focal class
+4. Use @BeforeEach for setting up required preconditions before each test method And @AfterEach for cleanup. Use @BeforeAll (static) if setup is required once before all tests.
+5. For each invocation:
+Stub its behavior (when(mock.member(args)).thenReturn(...) for non-void; doNothing().when(...) and verify mehtod call for void ).
+6. Use Arrange-Act-Assert format.
+  -Arrange: Set up inputs, mocks, or stubs.
+  -Act: Call the method under test.
+  -Assert:  Verify the results.
+7. Make all test methods public.
+8. Import only what is necessary: JUnit 5, Mockito, and the class under test.
+9. Return only a complete Java test class, no explanation.
+
+result: Here's an example of how you could write a JUnit test class for the `solveCRT` method in the `ChineseRemainderTheorem` class:
+```java
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+
+public class ChineseRemainderTheoremTest {
+    @Mock private List<Integer> remainders;
+    @Mock private List<Integer> moduli;
+
+    private ChineseRemainderTheorem crt;
+
+    @BeforeEach
+    public void setUp() {
+        // Set up the mocks and the focal class
+        crt = new ChineseRemainderTheorem();
+        when(moduli.size()).thenReturn(2);
+        when(moduli.get(0)).thenReturn(3);
+        when(moduli.get(1)).thenReturn(5);
+        when(remainders.size()).thenReturn(2);
+        when(remainders.get(0)).thenReturn(2);
+        when(remainders.get(1)).thenReturn(3);
+    }
+
+    @Test
+    public void testSolveCRT() {
+        // Arrange
+        int result = crt.solveCRT(remainders, moduli);
+
+        // Act
+        int expectedResult = 2 * 3 + 3 * 5;
+
+        // Assert
+        assertEquals(expectedResult, result);
+    }
+}
+```
+This test class uses Mockito to stub the behavior of the `remainders` and `moduli` lists, and then verifies that the `solveCRT` method returns the expected result. The `@BeforeEach` method is used to set up the mocks and the focal class before each test method is run.

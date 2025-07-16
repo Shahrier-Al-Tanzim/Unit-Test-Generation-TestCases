@@ -1,0 +1,64 @@
+query: 
+You are a Java testing assistant.
+Below is a JSON array of method-metadata for the class under test. Your task is to generate a complete, idiomatic JUnit 5 unit test class for each following Java method:
+```json
+{"package": "com.thealgorithms.recursion", "imports": ["java.util.ArrayList", "java.util.List"], "classes": [{"class_name": "GenerateSubsets", "modifiers": ["public", "final"], "fields": [], "constructors": [{"parameters": [], "modifiers": ["private"]}], "methods": [{"name": "subsetRecursion", "modifiers": ["public", "static"], "return_type": "List", "parameters": [{"name": "str", "type": "String"}], "invocations": [{"qualifier": "", "member": "doRecursion", "arguments": ["Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\"\")", "str"]}], "conditionals": []}, {"name": "doRecursion", "modifiers": ["static", "private"], "return_type": "List", "parameters": [{"name": "p", "type": "String"}, {"name": "up", "type": "String"}], "invocations": [{"qualifier": "up", "member": "isEmpty", "arguments": []}, {"qualifier": "list", "member": "add", "arguments": ["p"]}, {"qualifier": "up", "member": "charAt", "arguments": ["Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=0)"]}, {"qualifier": "", "member": "doRecursion", "arguments": ["BinaryOperation(operandl=MemberReference(member=p, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]), operandr=MemberReference(member=ch, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]), operator=+)", "MethodInvocation(arguments=[Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1)], member=substring, postfix_operators=[], prefix_operators=[], qualifier=up, selectors=[], type_arguments=None)"]}, {"qualifier": "up", "member": "substring", "arguments": ["Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1)"]}, {"qualifier": "", "member": "doRecursion", "arguments": ["p", "MethodInvocation(arguments=[Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1)], member=substring, postfix_operators=[], prefix_operators=[], qualifier=up, selectors=[], type_arguments=None)"]}, {"qualifier": "up", "member": "substring", "arguments": ["Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1)"]}, {"qualifier": "left", "member": "addAll", "arguments": ["right"]}], "conditionals": [{"condition": "MethodInvocation(arguments=[], member=isEmpty, postfix_operators=[], prefix_operators=[], qualifier=up, selectors=[], type_arguments=None)", "has_else": false}]}]}]}
+```
+Rules:
+1. Use @Test from JUnit 5.
+2. Resolve all the dependencies. Use Mockito (@Mock, Mockito.when(...), verify(...)) for all dependencies.
+3. Instantiate focal class
+4. Use @BeforeEach for setting up required preconditions before each test method And @AfterEach for cleanup. Use @BeforeAll (static) if setup is required once before all tests.
+5. For each invocation:
+Stub its behavior (when(mock.member(args)).thenReturn(...) for non-void; doNothing().when(...) and verify mehtod call for void ).
+6. Use Arrange-Act-Assert format.
+  -Arrange: Set up inputs, mocks, or stubs.
+  -Act: Call the method under test.
+  -Assert:  Verify the results.
+7. Make all test methods public.
+8. Import only what is necessary: JUnit 5, Mockito, and the class under test.
+9. Return only a complete Java test class, no explanation.
+
+result: Here's an example of how you could write a unit test for the `subsetRecursion` method using JUnit 5 and Mockito:
+```java
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.mockito.MockedStatic;
+
+class GenerateSubsetsTest {
+    private static final String STR = "abc";
+    private List<String> subsets;
+
+    @BeforeEach
+    void setUp() {
+        // Set up the mocked static method
+        try (MockedStatic<GenerateSubsets> mocked = mockStatic(GenerateSubsets.class)) {
+            mocked.when(() -> GenerateSubsets.doRecursion(STR, 0)).thenReturn(List.of("a", "b", "c"));
+        }
+    }
+
+    @Test
+    void testSubsetRecursion() {
+        // Arrange
+        subsets = new ArrayList<>();
+
+        // Act
+        GenerateSubsets.subsetRecursion(STR, 0);
+
+        // Assert
+        assertEquals(List.of("a", "b", "c"), subsets);
+    }
+}
+```
+In this example, we use the `@BeforeEach` annotation to set up a mocked static method for the `doRecursion` method using Mockito's `mockStatic` method. We then use the `when` and `thenReturn` methods to specify the behavior of the mocked method when it is called with the specified arguments.
+
+In the `@Test` method, we create an instance of the `ArrayList` class to store the subsets generated by the `subsetRecursion` method. We then call the `subsetRecursion` method with the same arguments as in the original method and assert that the resulting subset is equal to the expected value.
+
+Note that this is just one possible way to write a unit test for the `subsetRecursion` method using JUnit 5 and Mockito. There are many other ways to do it, and the specific approach you choose will depend on your requirements and preferences.

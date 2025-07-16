@@ -1,0 +1,63 @@
+query: 
+You are a Java testing assistant.
+Below is a JSON array of method-metadata for the class under test. Your task is to generate a complete, idiomatic JUnit 5 unit test class for each following Java method:
+```json
+{"package": "com.thealgorithms.dynamicprogramming", "imports": [], "classes": [{"class_name": "LongestPalindromicSubsequence", "modifiers": ["public", "final"], "fields": [], "constructors": [{"parameters": [], "modifiers": ["private"]}], "methods": [{"name": "main", "modifiers": ["public", "static"], "return_type": "void", "parameters": [{"name": "args", "type": "String"}], "invocations": [{"qualifier": "", "member": "lps", "arguments": ["a"]}, {"qualifier": "", "member": "lps", "arguments": ["b"]}, {"qualifier": "System.out", "member": "println", "arguments": ["BinaryOperation(operandl=BinaryOperation(operandl=MemberReference(member=a, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\" => \"), operator=+), operandr=MemberReference(member=aLPS, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]), operator=+)"]}, {"qualifier": "System.out", "member": "println", "arguments": ["BinaryOperation(operandl=BinaryOperation(operandl=MemberReference(member=b, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=\" => \"), operator=+), operandr=MemberReference(member=bLPS, postfix_operators=[], prefix_operators=[], qualifier=, selectors=[]), operator=+)"]}], "conditionals": []}, {"name": "lps", "modifiers": ["public", "static"], "return_type": "String", "parameters": [{"name": "original", "type": "String"}], "invocations": [{"qualifier": "reverse", "member": "reverse", "arguments": []}, {"qualifier": "", "member": "recursiveLPS", "arguments": ["original", "MethodInvocation(arguments=[], member=toString, postfix_operators=[], prefix_operators=[], qualifier=reverse, selectors=[], type_arguments=None)"]}, {"qualifier": "reverse", "member": "toString", "arguments": []}], "conditionals": []}, {"name": "recursiveLPS", "modifiers": ["static", "private"], "return_type": "String", "parameters": [{"name": "original", "type": "String"}, {"name": "reverse", "type": "String"}], "invocations": [{"qualifier": "original", "member": "length", "arguments": []}, {"qualifier": "reverse", "member": "length", "arguments": []}, {"qualifier": "original", "member": "charAt", "arguments": ["BinaryOperation(operandl=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=original, selectors=[], type_arguments=None), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1), operator=-)"]}, {"qualifier": "original", "member": "length", "arguments": []}, {"qualifier": "reverse", "member": "charAt", "arguments": ["BinaryOperation(operandl=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=reverse, selectors=[], type_arguments=None), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1), operator=-)"]}, {"qualifier": "reverse", "member": "length", "arguments": []}, {"qualifier": "", "member": "recursiveLPS", "arguments": ["MethodInvocation(arguments=[Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=0), BinaryOperation(operandl=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=original, selectors=[], type_arguments=None), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1), operator=-)], member=substring, postfix_operators=[], prefix_operators=[], qualifier=original, selectors=[], type_arguments=None)", "MethodInvocation(arguments=[Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=0), BinaryOperation(operandl=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=reverse, selectors=[], type_arguments=None), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1), operator=-)], member=substring, postfix_operators=[], prefix_operators=[], qualifier=reverse, selectors=[], type_arguments=None)"]}, {"qualifier": "original", "member": "substring", "arguments": ["Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=0)", "BinaryOperation(operandl=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=original, selectors=[], type_arguments=None), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1), operator=-)"]}, {"qualifier": "original", "member": "length", "arguments": []}, {"qualifier": "reverse", "member": "substring", "arguments": ["Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=0)", "BinaryOperation(operandl=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=reverse, selectors=[], type_arguments=None), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1), operator=-)"]}, {"qualifier": "reverse", "member": "length", "arguments": []}, {"qualifier": "reverse", "member": "charAt", "arguments": ["BinaryOperation(operandl=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=reverse, selectors=[], type_arguments=None), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1), operator=-)"]}, {"qualifier": "reverse", "member": "length", "arguments": []}, {"qualifier": "", "member": "recursiveLPS", "arguments": ["original", "MethodInvocation(arguments=[Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=0), BinaryOperation(operandl=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=reverse, selectors=[], type_arguments=None), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1), operator=-)], member=substring, postfix_operators=[], prefix_operators=[], qualifier=reverse, selectors=[], type_arguments=None)"]}, {"qualifier": "reverse", "member": "substring", "arguments": ["Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=0)", "BinaryOperation(operandl=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=reverse, selectors=[], type_arguments=None), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1), operator=-)"]}, {"qualifier": "reverse", "member": "length", "arguments": []}, {"qualifier": "", "member": "recursiveLPS", "arguments": ["MethodInvocation(arguments=[Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=0), BinaryOperation(operandl=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=original, selectors=[], type_arguments=None), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1), operator=-)], member=substring, postfix_operators=[], prefix_operators=[], qualifier=original, selectors=[], type_arguments=None)", "reverse"]}, {"qualifier": "original", "member": "substring", "arguments": ["Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=0)", "BinaryOperation(operandl=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=original, selectors=[], type_arguments=None), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1), operator=-)"]}, {"qualifier": "original", "member": "length", "arguments": []}, {"qualifier": "bestSubResult1", "member": "length", "arguments": []}, {"qualifier": "bestSubResult2", "member": "length", "arguments": []}], "conditionals": [{"condition": "BinaryOperation(operandl=BinaryOperation(operandl=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=original, selectors=[], type_arguments=None), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=0), operator===), operandr=BinaryOperation(operandl=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=reverse, selectors=[], type_arguments=None), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=0), operator===), operator=||)", "has_else": true}, {"condition": "BinaryOperation(operandl=MethodInvocation(arguments=[BinaryOperation(operandl=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=original, selectors=[], type_arguments=None), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1), operator=-)], member=charAt, postfix_operators=[], prefix_operators=[], qualifier=original, selectors=[], type_arguments=None), operandr=MethodInvocation(arguments=[BinaryOperation(operandl=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=reverse, selectors=[], type_arguments=None), operandr=Literal(postfix_operators=[], prefix_operators=[], qualifier=None, selectors=[], value=1), operator=-)], member=charAt, postfix_operators=[], prefix_operators=[], qualifier=reverse, selectors=[], type_arguments=None), operator===)", "has_else": true}, {"condition": "BinaryOperation(operandl=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=bestSubResult1, selectors=[], type_arguments=None), operandr=MethodInvocation(arguments=[], member=length, postfix_operators=[], prefix_operators=[], qualifier=bestSubResult2, selectors=[], type_arguments=None), operator=>)", "has_else": true}]}]}]}
+```
+Rules:
+1. Use @Test from JUnit 5.
+2. Resolve all the dependencies. Use Mockito (@Mock, Mockito.when(...), verify(...)) for all dependencies.
+3. Instantiate focal class
+4. Use @BeforeEach for setting up required preconditions before each test method And @AfterEach for cleanup. Use @BeforeAll (static) if setup is required once before all tests.
+5. For each invocation:
+Stub its behavior (when(mock.member(args)).thenReturn(...) for non-void; doNothing().when(...) and verify mehtod call for void ).
+6. Use Arrange-Act-Assert format.
+  -Arrange: Set up inputs, mocks, or stubs.
+  -Act: Call the method under test.
+  -Assert:  Verify the results.
+7. Make all test methods public.
+8. Import only what is necessary: JUnit 5, Mockito, and the class under test.
+9. Return only a complete Java test class, no explanation.
+
+result: 
+Here's an example of how you could write the tests for the `LongestCommonSubsequence` class using JUnit 5 and Mockito:
+```
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+public class LongestCommonSubsequenceTest {
+  private LongestCommonSubsequence lcs;
+  private String str1 = "abcdef";
+  private String str2 = "abcefg";
+
+  @BeforeEach
+  public void setUp() {
+    lcs = new LongestCommonSubsequence();
+  }
+
+  @Test
+  public void testLCS_EmptyStrings() {
+    Mockito.when(lcs.getLCS("", "")).thenReturn("");
+    assertEquals("", lcs.getLCS("", ""));
+  }
+
+  @Test
+  public void testLCS_OneString() {
+    Mockito.when(lcs.getLCS(str1, str2)).thenReturn("abc");
+    assertEquals("abc", lcs.getLCS(str1, str2));
+  }
+
+  @Test
+  public void testLCS_TwoStrings() {
+    Mockito.when(lcs.getLCS(str1, str2)).thenReturn("abce");
+    assertEquals("abce", lcs.getLCS(str1, str2));
+  }
+}
+```
+In this example, we're using the `@BeforeEach` annotation to set up a new instance of the `LongestCommonSubsequence` class before each test method. We're also using Mockito to stub the behavior of the `getLCS` method for the two strings "abcdef" and "abcefg".
+
+In the first test method, we're testing that the LCS of two empty strings is an empty string. In the second test method, we're testing that the LCS of a single string is itself. In the third test method, we're testing that the LCS of two strings is "abce".
+
+Note that in this example, we're using the `assertEquals` method from JUnit 5 to verify that the results of the `getLCS` method are what we expect them to be.
