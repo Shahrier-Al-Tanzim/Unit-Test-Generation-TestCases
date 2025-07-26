@@ -392,7 +392,12 @@ def dfs_process_java_folders_mirrored(source_root, test_root):
         process_java_folder_mirrored(dirpath, source_root, test_root=None)
 
 if __name__ == "__main__":
-    source_root = input("Enter the path to the source folder: ").strip()
+    import sys
+    if len(sys.argv) > 1:
+        source_root = sys.argv[1]
+        print(f"[INFO] Using source folder from command-line argument: {source_root}")
+    else:
+        source_root = input("Enter the path to the source folder: ").strip()
     if not os.path.exists(source_root):
         print(f"[ERROR] The folder '{source_root}' does not exist.")
     else:
